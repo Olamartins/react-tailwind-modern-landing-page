@@ -1,6 +1,6 @@
 import React from "react";
-import { motion } from 'framer-motion';
-import { fadeIn} from '../utils/motion';
+import { motion } from "framer-motion";
+import { fadeIn } from "../utils/motion";
 
 const PurposeSection = () => {
   const features = [
@@ -20,11 +20,12 @@ const PurposeSection = () => {
 
   return (
     <section className="w-full bg-gray-50 py-16 px-4 sm:px-6 md:px-8">
-      <motion.div 
-      variants={fadeIn('left',1)}
-      initial="hidden"
-      whileInView="show"
-      className="max-w-6xl mx-auto">
+      <motion.div
+        variants={fadeIn("left", 1)}
+        initial="hidden"
+        whileInView="show"
+        className="max-w-6xl mx-auto"
+      >
         <div className="grid md:grid-cols-3 grid-cols-1">
           <div className=" ">
             <p className="text-sm text-purple-600 font-medium md-2">
@@ -35,19 +36,23 @@ const PurposeSection = () => {
             </h2>
           </div>
 
-           {/* bullet points */}
+          {/* bullet points */}
 
-            <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 justify-between gap-8">
+          <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 justify-between gap-8">
             {features.map((feature, index) => (
-                <div key={index} className="flex items-baseline space-x-4">
-                    <div className="w-12 h-12 flex items-center justify-start rounded-lg">{feature.icon}</div>
-                    <div>
-                        <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                        <p className="text-gray-600">{feature.description}</p>
-                    </div>
+              <div key={index} className="flex items-baseline space-x-4">
+                <div className="w-12 h-12 flex items-center justify-start rounded-lg">
+                  {feature.icon}
                 </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600">{feature.description}</p>
+                </div>
+              </div>
             ))}
-            </div>
+          </div>
         </div>
       </motion.div>
     </section>
