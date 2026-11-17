@@ -184,10 +184,10 @@ export const testimonials = [
 ];
 
 export const team = [
-  { name: "Ada Nwosu", role: "Founder & Strategy Lead", initials: "AN", gradient: "from-brand-400 to-brand-700" },
-  { name: "Marcus Lee", role: "Head of Design", initials: "ML", gradient: "from-sky-400 to-brand-600" },
-  { name: "Priya Sharma", role: "SEO Director", initials: "PS", gradient: "from-indigo-400 to-brand-800" },
-  { name: "Diego Ramirez", role: "Lead Developer", initials: "DR", gradient: "from-brand-300 to-brand-600" },
+  { name: "Ola Martins", role: "Founder & Strategy Lead", initials: "OM", gradient: "from-brand-400 to-brand-700" },
+  { name: "Jemima O'Nimi", role: "Head of Design", initials: "JO", gradient: "from-sky-400 to-brand-600" },
+  { name: "Edna Itoya", role: "SEO Director", initials: "EI", gradient: "from-indigo-400 to-brand-800" },
+  { name: "Obanimi Japheth", role: "Lead Developer", initials: "OJ", gradient: "from-brand-300 to-brand-600" },
 ];
 
 export const faqs = [
