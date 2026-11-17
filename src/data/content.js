@@ -118,6 +118,7 @@ export const projects = [
   {
     title: "Hausoriginal",
     url: "https://hausoriginal.com/",
+    image: "/case-studies/hausoriginal.jpg",
     category: "Agri-Export Corporate Site",
     result: "Live at hausoriginal.com",
     gradient: "from-brand-500 via-brand-600 to-ink",
@@ -126,6 +127,7 @@ export const projects = [
   {
     title: "Sandsali Nigeria Ltd",
     url: "https://sandsalilimited.com/",
+    image: "/case-studies/sandsali.jpg",
     category: "Construction & Engineering",
     result: "Live at sandsalilimited.com",
     gradient: "from-sky-400 via-brand-500 to-brand-800",
@@ -134,6 +136,7 @@ export const projects = [
   {
     title: "Putia Original",
     url: "https://putiaoriginal.com/",
+    image: "/case-studies/putia.jpg",
     category: "Fashion E-commerce",
     result: "Live at putiaoriginal.com",
     gradient: "from-indigo-500 via-brand-600 to-ink-800",
@@ -142,6 +145,7 @@ export const projects = [
   {
     title: "Olamartins",
     url: "https://olamartins.com/",
+    image: "/case-studies/olamartins.jpg",
     category: "Personal Brand & Consulting",
     result: "Live at olamartins.com",
     gradient: "from-brand-400 via-brand-700 to-ink",

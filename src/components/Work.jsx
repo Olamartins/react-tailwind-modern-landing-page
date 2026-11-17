@@ -42,9 +42,16 @@ export default function Work() {
                 aria-label={`${project.title} — open live site`}
                 className="group block overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-card transition-shadow duration-300 hover:shadow-soft"
               >
-                <div
-                  className={`relative h-60 overflow-hidden bg-gradient-to-br sm:h-64 ${project.gradient}`}
-                >
+                <div className="relative h-60 overflow-hidden bg-ink sm:h-64">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} website snapshot`}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-70 mix-blend-multiply`}
+                  />
                   <div className="pointer-events-none absolute -right-10 -top-10 h-44 w-44 rounded-full border-[22px] border-white/15 transition-transform duration-500 group-hover:scale-110" />
                   <div className="pointer-events-none absolute -bottom-14 -left-8 h-40 w-40 rounded-full bg-white/10 blur-xl" />
                   <span className="pointer-events-none absolute bottom-3 right-5 font-display text-7xl font-bold text-white/10">

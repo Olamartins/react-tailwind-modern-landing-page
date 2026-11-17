@@ -25,6 +25,7 @@ src/
   components/          One file per section (Navbar, Hero, About, Services, Work, ...)
   App.jsx              Section assembly
   index.css            Tailwind v4 theme (@theme colors/fonts/shadows) + custom utilities
+public/case-studies/   Live-site snapshots shown in the Case Studies cards (blue gradient overlay applied in Work.jsx)
 index.html             SEO meta + font loading
 ```
 
