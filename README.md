@@ -1,105 +1,45 @@
-# 🚀 Modern Web Landing Page
+# VizNerd — Digital Visibility & Growth Agency
 
-A sleek and responsive **modern web landing page** built with **React.js**, **Tailwind CSS**, and **Framer Motion**.  
-Deployed seamlessly on **Vercel**, this project demonstrates a scalable front-end architecture with elegant animations and a pixel-perfect layout.
+A production-ready marketing site for **VizNerd**, an agency that helps companies and
+organizations gain visibility and a stronger online presence — and convert visitors into
+clients. Built with **React**, **Tailwind CSS** and **Framer Motion**, deployed on Vercel.
 
-🌐 **Live Demo:** [https://react-tailwind-modern-landing-page.vercel.app/](https://react-tailwind-modern-landing-page.vercel.app/)
+## Built with
 
----
+- **React 19** (Vite) — component-driven architecture
+- **Tailwind CSS 4** — utility-first styling; blue theme (`brand` palette + `ink` navy) defined in `src/index.css` via `@theme`
+- **Framer Motion** — scroll reveals, accordions, animated counters, hero motion
+- **Fonts:** Inter (body) + Outfit (display) via Google Fonts
 
-## 🧠 Overview
+## Features
 
-This project showcases how to combine **React**’s component-driven architecture, **Tailwind CSS**’s utility-first styling, and **Framer Motion**’s powerful animation system to create an engaging, modern landing page that feels alive and smooth.
+- Fully responsive, single-page layout: hero, client marquee, about + animated stats, values accordion, numbered services, case studies (cards link to live client sites), testimonials, team, FAQ, blog, careers (empty state — no open roles yet), CTA and footer
+- Scroll-triggered animations with Framer Motion (`whileInView`, staggered children, `AnimatePresence` accordions)
+- SEO-ready `index.html` (title, description, Open Graph) and SVG favicon
 
-It’s designed to be minimal, fast, and easily customizable — perfect for startups, agencies, or product presentations.
+## Project structure
 
----
-
-## 🛠️ Built With
-
-- ⚛️ **React.js** – A JavaScript library for building user interfaces with reusable components.  
-- 💨 **Tailwind CSS** – A utility-first CSS framework for rapid UI development and responsive design.  
-- 🎞️ **Framer Motion** – A motion library for React that powers fluid animations and delightful interactions.  
-- ☁️ **Vercel** – A cloud platform for fast, zero-config deployment and continuous integration.
-
----
-
-## ✨ Features
-
-- 📱 **Fully Responsive Design** – Works beautifully across all screen sizes.  
-- 🎨 **Modern Aesthetic** – Built with clean typography, balanced color palette, and smooth spacing.  
-- 🧩 **Reusable Components** – Built with modular React components for scalability.  
-- ⚡ **Performance Optimized** – Fast loading times and minimal bundle size.  
-- 🌀 **Smooth Animations** – Subtle transitions and scroll-triggered animations powered by Framer Motion.  
-- 🚀 **Deployed on Vercel** – Continuous deployment and instant rollbacks.
-
----
-
-## 📂 Project Structure
-
-# 🚀 Modern Web Landing Page
-
-A sleek and responsive **modern web landing page** built with **React.js**, **Tailwind CSS**, and **Framer Motion**.  
-Deployed seamlessly on **Vercel**, this project demonstrates a scalable front-end architecture with elegant animations and a pixel-perfect layout.
-
-🌐 **Live Demo:** [https://react-tailwind-modern-landing-page.vercel.app/](https://react-tailwind-modern-landing-page.vercel.app/)
-
----
-
-## 🧠 Overview
-
-This project showcases how to combine **React**’s component-driven architecture, **Tailwind CSS**’s utility-first styling, and **Framer Motion**’s powerful animation system to create an engaging, modern landing page that feels alive and smooth.
-
-It’s designed to be minimal, fast, and easily customizable — perfect for startups, agencies, or product presentations.
-
----
-
-## 🛠️ Built With
-
-- ⚛️ **React.js** – A JavaScript library for building user interfaces with reusable components.  
-- 💨 **Tailwind CSS** – A utility-first CSS framework for rapid UI development and responsive design.  
-- 🎞️ **Framer Motion** – A motion library for React that powers fluid animations and delightful interactions.  
-- ☁️ **Vercel** – A cloud platform for fast, zero-config deployment and continuous integration.
-
----
-
-## ✨ Features
-
-- 📱 **Fully Responsive Design** – Works beautifully across all screen sizes.  
-- 🎨 **Modern Aesthetic** – Built with clean typography, balanced color palette, and smooth spacing.  
-- 🧩 **Reusable Components** – Built with modular React components for scalability.  
-- ⚡ **Performance Optimized** – Fast loading times and minimal bundle size.  
-- 🌀 **Smooth Animations** – Subtle transitions and scroll-triggered animations powered by Framer Motion.  
-- 🚀 **Deployed on Vercel** – Continuous deployment and instant rollbacks.
-
----
-
-## 📂 Project Structure
-
-react-tailwind-modern-landing-page/
-├── public/
-│ └── assets/ # Images, icons, and static files
-├── src/
-│ ├── components/ # Reusable React components
-│ ├── sections/ # Page sections (Hero, Features, Testimonials, etc.)
-│ ├── App.jsx # Main App entry point
-│ ├── index.jsx # React DOM render setup
-│ └── styles/ # Custom global styles if any
-├── tailwind.config.js # Tailwind CSS configuration
-├── package.json # Dependencies and scripts
-└── README.md
-
-----
-
-## ⚙️ Getting Started
-
-Follow these steps to run the project locally:
-
-### 1️⃣ Clone the Repository
 ```
-git clone https://github.com/<your-username>/react-tailwind-modern-landing-page.git
-cd react-tailwind-modern-landing-page```
+src/
+  data/content.js      All editable copy: nav, hero, stats, services, projects, FAQ, blog, footer
+  components/          One file per section (Navbar, Hero, About, Services, Work, ...)
+  App.jsx              Section assembly
+  index.css            Tailwind v4 theme (@theme colors/fonts/shadows) + custom utilities
+public/case-studies/   Live-site snapshots shown in the Case Studies cards (blue gradient overlay applied in Work.jsx)
+index.html             SEO meta + font loading
+```
 
-### Run Dependecies:
-```npm install```
+## Run locally
 
+```bash
+npm ci
+npm run dev      # dev server
+npm run build    # production build
+npm run preview  # serve the build
+npm run lint     # eslint
+```
+
+## Customize
+
+Edit `src/data/content.js` for all text and lists; tweak colors/fonts in the `@theme`
+block of `src/index.css`; each section is an isolated component in `src/components/`.

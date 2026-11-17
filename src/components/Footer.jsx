@@ -1,81 +1,100 @@
-import React from "react";
-import { BsFacebook, BsTwitterX, BsInstagram} from "react-icons/bs";
+import { contactInfo, footerCompany, footerServices } from "../data/content.js";
+import { Dribbble, Instagram, LinkedIn, Mail, Phone, Pin, XSocial } from "./icons.jsx";
 
-  const footerLinks = {
-    company: [
-      { name: 'About', href: '#' },
-      { name: 'Terms of Use', href: '#' },
-      { name: 'Privacy Policy', href: '#' },
-      { name: 'How it Works', href: '#' },
-      { name: 'Contact Us', href: '#' },
-    ],
-    getHelp: [
-      { name: 'Support Carrer', href: '#' },
-      { name: '24h Service', href: '#' },
-      { name: 'Quick Chat', href: '#' },
-    ],
-    support: [
-      { name: 'FAQ', href: '#' },
-      { name: 'Policy', href: '#' },
-      { name: 'Business', href: '#' },
-    ],
-    contact: [
-      { name: 'WhatsApp', href: '#' },
-      { name: 'Support 24', href: '#' },
-    ],
-  }
+const socials = [
+  { label: "X (Twitter)", Icon: XSocial },
+  { label: "LinkedIn", Icon: LinkedIn },
+  { label: "Instagram", Icon: Instagram },
+  { label: "Dribbble", Icon: Dribbble },
+];
 
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="bg-gray-200">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {/* Brand Column*/}
-          <div className="lg:cols-span-4">
-            <div className="flex items-center gap-1 mb-4">
-              <div className="flex items-center gap-1 cursor-pointer">
-                <div className="w-4 h-4 bg-blue-600 rounded-full opacity-75 hover:opacity-100"></div>
-                <div className="w-4 h-4 bg-red-500 -ml-2 rounded-full opacity-100 hover:opacity-75"></div>
-              </div>
-              <span className="text-xl font-medium mml-1">The Next Design</span>
-            </div>
-            <p className="text-gray-600 mb-6 md:w-3/4">The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times.</p>
-            {/* Social Media Icons*/}
-            <div className="flex flex-row gap-3">
-                <a href="" className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-600 hover:text-blue-400 transition-all duration-200"><BsFacebook className="size-5"/></a>
-
-                 <a href="" className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-600 hover:text-blue-400 transition-all duration-200"><BsTwitterX className="size-5"/></a>
-
-                  <a href="" className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-600 hover:text-blue-400 transition-all duration-200"><BsInstagram className="size-5"/></a>
-            </div>
-          </div> 
-          {/* Footer Navigation */}
-          <div className="lg:col-span-3">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                {Object.entries(footerLinks).map(([category, links], categoryIndex) => (
-                    <div key={categoryIndex}>
-                        <h3 className="text-lg font-medium mb-4 uppercase">{category}</h3>
-                        <ul className="space-y-3">
-                            {links.map((link,index) =>(
-                                <li key={index}>
-                                    <a href="#" className="text-gray-600 hover:text-gray-900">{link.name}</a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                ))}
+    <footer className="bg-[#04091a] text-slate-400">
+      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.3fr]">
+          <div className="flex flex-col gap-5">
+            <a href="#top" className="flex items-center gap-2.5">
+              <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-600 font-display text-lg font-bold text-white">
+                V
+              </span>
+              <span className="font-display text-xl font-bold tracking-tight text-white">VizNerd</span>
+            </a>
+            <p className="max-w-xs text-sm leading-relaxed">
+              A digital agency helping companies and organizations gain visibility and online
+              presence — and turn visitors into clients.
+            </p>
+            <div className="flex gap-3">
+              {socials.map(({ label, Icon }) => (
+                <a
+                  key={label}
+                  href="#top"
+                  aria-label={label}
+                  className="grid h-9 w-9 place-items-center rounded-full border border-white/10 text-slate-300 transition-colors hover:border-brand-500 hover:bg-brand-600 hover:text-white"
+                >
+                  <Icon />
+                </a>
+              ))}
             </div>
           </div>
+
+          <div>
+            <h3 className="font-display text-sm font-bold uppercase tracking-wider text-white">Company</h3>
+            <ul className="mt-5 flex flex-col gap-3 text-sm">
+              {footerCompany.map((item) => (
+                <li key={item.label}>
+                  <a href={item.href} className="transition-colors hover:text-brand-400">
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-display text-sm font-bold uppercase tracking-wider text-white">Services</h3>
+            <ul className="mt-5 flex flex-col gap-3 text-sm">
+              {footerServices.map((item) => (
+                <li key={item}>
+                  <a href="#services" className="transition-colors hover:text-brand-400">
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-display text-sm font-bold uppercase tracking-wider text-white">Contact</h3>
+            <ul className="mt-5 flex flex-col gap-4 text-sm">
+              <li className="flex items-start gap-3">
+                <Pin className="mt-0.5 h-4 w-4 shrink-0 text-brand-400" />
+                {contactInfo.address}
+              </li>
+              <li>
+                <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-3 transition-colors hover:text-brand-400">
+                  <Mail className="h-4 w-4 shrink-0 text-brand-400" />
+                  {contactInfo.email}
+                </a>
+              </li>
+              <li>
+                <a href={`tel:${contactInfo.phone.replace(/[^+\d]/g, "")}`} className="flex items-center gap-3 transition-colors hover:text-brand-400">
+                  <Phone className="h-4 w-4 shrink-0 text-brand-400" />
+                  {contactInfo.phone}
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-        {/* Footer bottom section */}
-        <div>
-            <div className="border-t border-gray-900 mt-8 pt-8">
-                <p className="text-gray-600 text-sm">Copyrights &copy; {new Date().getFullYear()} viznerd.ng</p>
-            </div>
+
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-7 text-sm sm:flex-row">
+          <p>© 2025 VizNerd Agency. All rights reserved.</p>
+          <div className="flex gap-6">
+            <a href="#top" className="transition-colors hover:text-brand-400">Privacy Policy</a>
+            <a href="#top" className="transition-colors hover:text-brand-400">Terms &amp; Conditions</a>
+          </div>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

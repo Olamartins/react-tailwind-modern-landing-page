@@ -1,88 +1,96 @@
-import React, {useState} from 'react'
-import {HiMenu, HiX} from 'react-icons/hi' 
-// eslint-disable-next-line no-unused-vars
-import { motion } from "framer-motion"
-import { fadeIn } from '../utils/motion'
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { navLinks } from "../data/content.js";
+import { CloseIcon, MenuIcon } from "./icons.jsx";
 
-const Navbar = () => {
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [activeLink, setActiveLink] = useState('#home')
-
-  const navlinks = [
-    {href: '#home', label: 'Home'},
-    {href: '#about', label: 'About'},
-    {href: '#services', label: 'Our Services'},
-    {href: '#testimonials', label: 'Testimonials'},
-
-  ]
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <motion.nav 
-    variants={fadeIn('down',0.2)}
-    initial="hidden"
-    whileInView="show"
-    viewport={{once: true}}
-    className='fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm shadow-sm z-50 border-b border-gray-100'>
-      <div className="w-full container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 md:h-20 h-16">
-        {/* Logo Section */}
-        <div className='flex items-center gap-1 cursor-pointer'>
-          <div className='w-4 h-4 bg-blue-600 rounded-full opacity-75 hover:opacity-100'></div>
-          <div className='w-4 h-4 bg-red-500 -ml-2 rounded-full opacity-100 hover:opacity-75'></div>
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        scrolled || open ? "bg-white/90 shadow-card backdrop-blur-xl" : "bg-transparent"
+      }`}
+    >
+      <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
+        <a href="#top" className="flex items-center gap-2.5">
+          <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-600 font-display text-lg font-bold text-white shadow-soft">
+            V
+          </span>
+          <span className="font-display text-xl font-bold tracking-tight text-ink">VizNerd</span>
+        </a>
+
+        <div className="hidden items-center gap-8 lg:flex">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-sm font-medium text-slate-600 transition-colors hover:text-brand-600"
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
 
-        {/* mobile menu button */}
-        <button 
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className='md:hidden p-2'>
-          {
-            isMenuOpen ? <HiX className='size-6'/> : <HiMenu className='size-6'/>
-          }
-        </button>
+        <div className="hidden lg:block">
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 rounded-full bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition hover:bg-brand-700"
+          >
+            Get a quote
+          </a>
+        </div>
 
-        {/* Desktop nav items */}
-        <div className='hidden md:flex items-center gap-10'>
-          {
-            navlinks.map((link, index) => {
-              return (
-                <a key={index} href={link.href}
-                  onClick={() => setActiveLink(link.href)}
-                  className={`text-sm font-bold relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-blue-600 after:transition-all duration-200 ${activeLink === link.href ? 'text-blue-600 after:w-full' : 'text-gray-600 hover:text-gray-900'}`}>{link.label}
+        <button
+          type="button"
+          className="text-ink lg:hidden"
+          onClick={() => setOpen((v) => !v)}
+          aria-label="Toggle navigation menu"
+          aria-expanded={open}
+        >
+          {open ? <CloseIcon /> : <MenuIcon />}
+        </button>
+      </nav>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden border-t border-slate-100 bg-white lg:hidden"
+          >
+            <div className="flex flex-col gap-1 px-6 py-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:bg-brand-50 hover:text-brand-700"
+                >
+                  {link.label}
                 </a>
-              )
-            })
-          }
-        </div>
-
-        {/* get in touch btn */}
-        <button className='hidden md:block md:bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 text-sm font-medium transition-all hover:shadow-lg hover:shadow-blue-100'>
-          <a href="#newsletter">Get in Touch</a>
-        </button>
-
-        {/* mobile menu items */}
-        {isMenuOpen && (
-          <div className="absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-md flex flex-col px-5 items-start gap-6 py-6 md:hidden animate-fade-in z-50">
-            {navlinks.map((link, index) => (
+              ))}
               <a
-                key={index}
-                href={link.href}
-                onClick={() => {
-                  setActiveLink(link.href);
-                  setIsMenuOpen(false);
-                }}
-                className={`text-base font-bold ${activeLink === link.href ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600'}`}
+                href="#contact"
+                onClick={() => setOpen(false)}
+                className="mt-2 rounded-full bg-brand-600 px-5 py-3 text-center text-sm font-semibold text-white"
               >
-                {link.label}
+                Get a quote
               </a>
-            ))}
-            <button className='w-full bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 text-sm font-medium transition-all hover:shadow-lg hover:shadow-blue-100'>
-              <a href="#newsletter">Get in Touch</a>
-            </button>
-          </div>
+            </div>
+          </motion.div>
         )}
-      </div>
-    </motion.nav>
-  )
+      </AnimatePresence>
+    </header>
+  );
 }
-
-export default Navbar
