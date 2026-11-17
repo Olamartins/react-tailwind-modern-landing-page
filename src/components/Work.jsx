@@ -12,10 +12,10 @@ export default function Work() {
             eyebrow="Case studies"
             title={
               <>
-                Recent work that <span className="text-brand-600">moved the needle</span>
+                Live projects from <span className="text-brand-600">our clients</span>
               </>
             }
-            copy="A snapshot of recent engagements — and the measurable outcomes behind them."
+            copy="Every project below is live in production — click a card to explore the real site."
           />
           <Reveal delay={0.15}>
             <a
@@ -30,9 +30,21 @@ export default function Work() {
 
         <div className="grid gap-7 md:grid-cols-2">
           {projects.map((project, i) => (
-            <Reveal key={project.title} delay={(i % 2) * 0.1} className={i % 2 === 1 ? "md:translate-y-10" : ""}>
-              <article className="group overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-card transition-shadow duration-300 hover:shadow-soft">
-                <div className={`relative h-60 overflow-hidden bg-gradient-to-br sm:h-64 ${project.gradient}`}>
+            <Reveal
+              key={project.title}
+              delay={(i % 2) * 0.1}
+              className={i % 2 === 1 ? "md:translate-y-10" : ""}
+            >
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${project.title} — open live site`}
+                className="group block overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-card transition-shadow duration-300 hover:shadow-soft"
+              >
+                <div
+                  className={`relative h-60 overflow-hidden bg-gradient-to-br sm:h-64 ${project.gradient}`}
+                >
                   <div className="pointer-events-none absolute -right-10 -top-10 h-44 w-44 rounded-full border-[22px] border-white/15 transition-transform duration-500 group-hover:scale-110" />
                   <div className="pointer-events-none absolute -bottom-14 -left-8 h-40 w-40 rounded-full bg-white/10 blur-xl" />
                   <span className="pointer-events-none absolute bottom-3 right-5 font-display text-7xl font-bold text-white/10">
@@ -46,7 +58,7 @@ export default function Work() {
                       {project.year}
                     </span>
                   </div>
-                  <span className="absolute right-5 top-5 grid h-11 w-11 translate-y-2 place-items-center rounded-full bg-white text-ink opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                  <span className="absolute right-5 top-5 grid h-11 w-11 place-items-center rounded-full bg-white text-ink transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                     <ArrowUpRight />
                   </span>
                 </div>
@@ -61,7 +73,7 @@ export default function Work() {
                     <ArrowUpRight />
                   </span>
                 </div>
-              </article>
+              </a>
             </Reveal>
           ))}
         </div>

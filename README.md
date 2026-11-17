@@ -13,7 +13,7 @@ clients. Built with **React**, **Tailwind CSS** and **Framer Motion**, deployed 
 
 ## Features
 
-- Fully responsive, single-page layout: hero, client marquee, about + animated stats, values accordion, numbered services, case studies, testimonials, team, FAQ, blog, CTA and footer
+- Fully responsive, single-page layout: hero, client marquee, about + animated stats, values accordion, numbered services, case studies (cards link to live client sites), testimonials, team, FAQ, blog, careers (empty state — no open roles yet), CTA and footer
 - Scroll-triggered animations with Framer Motion (`whileInView`, staggered children, `AnimatePresence` accordions)
 - SEO-ready `index.html` (title, description, Open Graph) and SVG favicon
 

@@ -42,9 +42,9 @@ export default function Footer() {
             <h3 className="font-display text-sm font-bold uppercase tracking-wider text-white">Company</h3>
             <ul className="mt-5 flex flex-col gap-3 text-sm">
               {footerCompany.map((item) => (
-                <li key={item}>
-                  <a href="#top" className="transition-colors hover:text-brand-400">
-                    {item}
+                <li key={item.label}>
+                  <a href={item.href} className="transition-colors hover:text-brand-400">
+                    {item.label}
                   </a>
                 </li>
               ))}

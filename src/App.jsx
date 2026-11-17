@@ -9,6 +9,7 @@ import Testimonials from "./components/Testimonials.jsx";
 import Team from "./components/Team.jsx";
 import Faq from "./components/Faq.jsx";
 import Blog from "./components/Blog.jsx";
+import Careers from "./components/Careers.jsx";
 import Cta from "./components/Cta.jsx";
 import Footer from "./components/Footer.jsx";
 
@@ -27,6 +28,7 @@ function App() {
         <Team />
         <Faq />
         <Blog />
+        <Careers />
         <Cta />
       </main>
       <Footer />

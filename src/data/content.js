@@ -2,6 +2,7 @@ export const navLinks = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Work", href: "#work" },
+  { label: "Careers", href: "#career" },
   { label: "Team", href: "#team" },
   { label: "FAQ", href: "#faq" },
   { label: "Blog", href: "#blog" },
@@ -115,46 +116,36 @@ export const services = [
 
 export const projects = [
   {
-    title: "Nordhaus",
-    category: "SEO & Content",
-    result: "+212% organic traffic in 9 months",
+    title: "Hausoriginal",
+    url: "https://hausoriginal.com/",
+    category: "Agri-Export Corporate Site",
+    result: "Live at hausoriginal.com",
     gradient: "from-brand-500 via-brand-600 to-ink",
     year: "2025",
   },
   {
-    title: "Quantia",
-    category: "Web Design & CRO",
-    result: "3.4x more demo requests",
+    title: "Sandsali Nigeria Ltd",
+    url: "https://sandsalilimited.com/",
+    category: "Construction & Engineering",
+    result: "Live at sandsalilimited.com",
     gradient: "from-sky-400 via-brand-500 to-brand-800",
     year: "2025",
   },
   {
-    title: "Bluepeak",
-    category: "Brand Identity",
-    result: "Rebrand across 40+ touchpoints",
+    title: "Putia Original",
+    url: "https://putiaoriginal.com/",
+    category: "Fashion E-commerce",
+    result: "Live at putiaoriginal.com",
     gradient: "from-indigo-500 via-brand-600 to-ink-800",
-    year: "2024",
+    year: "2025",
   },
   {
-    title: "Orbita",
-    category: "Performance Marketing",
-    result: "-41% cost per qualified lead",
+    title: "Olamartins",
+    url: "https://olamartins.com/",
+    category: "Personal Brand & Consulting",
+    result: "Live at olamartins.com",
     gradient: "from-brand-400 via-brand-700 to-ink",
-    year: "2024",
-  },
-  {
-    title: "Fjordline",
-    category: "Web Development",
-    result: "0.8s LCP on a global audience",
-    gradient: "from-brand-300 via-brand-500 to-brand-900",
-    year: "2024",
-  },
-  {
-    title: "Helixon",
-    category: "SEO & Social",
-    result: "+96k qualified followers in 12 months",
-    gradient: "from-sky-500 via-brand-600 to-ink-700",
-    year: "2023",
+    year: "2025",
   },
 ];
 
@@ -253,7 +244,18 @@ export const footerServices = [
   "Conversion Optimization",
 ];
 
-export const footerCompany = ["About us", "Our work", "Careers", "Blog", "Contact"];
+export const footerCompany = [
+  { label: "About us", href: "#about" },
+  { label: "Our work", href: "#work" },
+  { label: "Careers", href: "#career" },
+  { label: "Blog", href: "#blog" },
+  { label: "Contact", href: "#contact" },
+];
+
+export const career = {
+  email: "careers@viznerd.com",
+  perks: ["Remote-friendly", "Senior-only team", "Learning & conference budget", "Flexible hours"],
+};
 
 export const contactInfo = {
   email: "hello@viznerd.com",
