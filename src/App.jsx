@@ -1,40 +1,37 @@
-
-import './App.css'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import CompanyLogo from './components/CompanyLogo'
-import PurposeSection from './components/PurposeSection'
-import FeaturesSection from './components/FeaturesSection'
-import ScheduleSection from './components/ScheduleSection'
-import MonitorSection from './components/MonitorSection'
-import PricingSection from './components/PricingSection'
-import ServicesSection from './components/ServicesSection'
-import TestimonialSection from './components/TestimonialSection'
-import NewsletterSection from './components/NewsletterSection'
-import Footer from './components/Footer'
+import Navbar from "./components/Navbar.jsx";
+import Hero from "./components/Hero.jsx";
+import LogoMarquee from "./components/LogoMarquee.jsx";
+import About from "./components/About.jsx";
+import Values from "./components/Values.jsx";
+import Services from "./components/Services.jsx";
+import Work from "./components/Work.jsx";
+import Testimonials from "./components/Testimonials.jsx";
+import Team from "./components/Team.jsx";
+import Faq from "./components/Faq.jsx";
+import Blog from "./components/Blog.jsx";
+import Cta from "./components/Cta.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
- 
-
   return (
-    <main className="relative min-h-screen overflow-x-hidden">
-      <div className='absolute -top-28 -left-28 w-[500px] h-[500px] bg-gradient-to-tr from-indigo-500/20 to-pink-500/20 rounded-full blur-[80px] -z-10'></div>
-      <div className='overflow-hidden'>
-        <Navbar/>
+    <div className="min-h-screen bg-white font-sans text-slate-600">
+      <Navbar />
+      <main>
         <Hero />
-        <CompanyLogo />
-        <PurposeSection/>
-        <FeaturesSection/>
-        <ScheduleSection/>
-        <MonitorSection />
-        <PricingSection />
-        <ServicesSection />
-        <TestimonialSection />
-        <NewsletterSection />
-        <Footer />
-      </div>
-    </main>
-)
+        <LogoMarquee />
+        <About />
+        <Values />
+        <Services />
+        <Work />
+        <Testimonials />
+        <Team />
+        <Faq />
+        <Blog />
+        <Cta />
+      </main>
+      <Footer />
+    </div>
+  );
 }
 
-export default App
+export default App;
